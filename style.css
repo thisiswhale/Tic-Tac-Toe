@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #642790; }
+
+.container {
+  margin: 0 auto; }
+
+.gameboard {
+  margin: 100px auto;
+  width: 500px;
+  height: 500px; }
+  .gameboard table {
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    border-spacing: 0px;
+    border-collapse: separate; }
+    .gameboard table td {
+      border: 5px solid black;
+      margin: 0;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none; }
+    .gameboard table .row-1 {
+      border-top: none; }
+    .gameboard table .row-3 {
+      border-bottom: none; }
+    .gameboard table .column-1 {
+      border-left: none; }
+    .gameboard table .column-3 {
+      border-right: none; }
+
+/*# sourceMappingURL=style.css.map */
