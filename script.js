@@ -1,27 +1,26 @@
 const grumpy = 'https://a.wattpad.com/useravatar/GrumpyKittyCat1212.128.403917.jpg';
 const doge = 'https://78.media.tumblr.com/avatar_8882900ce8af_128.pnj';
-let humanAvatar = grumpy;
 
-let counter = 9;
-
+let counter,currentGrid;
+window.onload = setGame;
 let human = {
   gamePiece: 'O',
   avatar: doge
 }
+
 let computer = {
   gamePiece: 'X',
   avatar: grumpy
 }
 
-let currentGrid = [0,1,2,
-                   3,4,5,
-                   6,7,8
-];
-let positions = document.getElementsByTagName('td');
-const result = document.getElementsByClassName('result');
+const positions = document.getElementsByTagName('td');
+const result = document.getElementById('result');
 //Starting the game
 function setGame() {
+  counter = 9;
+  currentGrid = [0,1,2,3,4,5,6,7,8];
   for (let i = 0; i < positions.length; i++) {
+    positions[i].innerText = "";
     positions[i].addEventListener('click', getHumanMove);
   }
 }
@@ -100,6 +99,7 @@ function emptyIndexies(grid) {
 }
 
 function getHumanMove() {
+  counter--;
   this.innerHTML = '<img src=' + human.avatar + '>';
   this.removeEventListener('click', getHumanMove)
   let index = parseInt(this.getAttribute('data-key'));
@@ -107,14 +107,21 @@ function getHumanMove() {
 
 
   if (checkWin(currentGrid, human.gamePiece)) {
-
-  } else {
+    result.innerText = 'WIN';
+    setGame();
+  }
+  else if (counter == 0){
+    result.innerText = 'DRAW';
+    setGame();
+  }
+  else {
     getComputerMove();
   }
 
 }
 
 function getComputerMove() {
+  counter--;
   numberOfFunctionCalls = 0;
   // finding the ultimate play on the game that favors the computer
   var bestSpot = minimax(currentGrid, computer.gamePiece);
@@ -128,7 +135,12 @@ function getComputerMove() {
   currentGrid[bestSpot.index] = computer.gamePiece;
 
   if (checkWin(currentGrid, computer.gamePiece)) {
-    console.log('bot win');
+    result.innerText = 'LOSE';
+    setGame();
+  }
+  else if (counter == 0){
+    result.innerText = 'DRAW';
+    setGame();
   }
 }
 
@@ -144,18 +156,7 @@ function checkWin(grid, player) {
          (grid[2] == player && grid[4] == player && grid[6] == player)
          ) {
          return true;
-     }
-     else if (counter == 0){
-       //draw
      }else {
          return false;
      }
 }
-
-function reset() {
-  human = [];
-  computer = [];
-  setGame();
-}
-
-window.onload = setGame;
