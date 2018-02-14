@@ -11,10 +11,19 @@
 
 <body>
   <div class="container">
-    <!-- add modal to choose O or X -->
-    <div class="nav-bar">
 
-    </div>
+   <!-- The Modal -->
+   <div id="modalPicker" class="modal">
+
+     <!-- Modal content -->
+     <div class="modal-content">
+       <h2>Select your character: </h2>
+       <img src="https://a.wattpad.com/useravatar/GrumpyKittyCat1212.128.403917.jpg" class='avatar' id='grumpy' data-set='grumpy'>
+       <img src="https://78.media.tumblr.com/avatar_8882900ce8af_128.pnj" class='avatar' id='doge' data-set='doge'>
+     </div>
+
+   </div>
+
     <div class="grid">
       <table>
         <tr>
@@ -33,9 +42,10 @@
           <td class='row-3 column-3 corner' id="8" data-key='8'></td>
         </tr>
       </table>
+      <div class='result-box' id="result"> here
+      </div>
     </div>
-    <div id="result">
-    </div>
+
   </div>
   <script src='script.js' type="text/javascript">
   </script>

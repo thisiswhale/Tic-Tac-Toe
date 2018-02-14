@@ -160,3 +160,25 @@ function checkWin(grid, player) {
          return false;
      }
 }
+
+// Get the modal
+var modal = document.getElementById('modalPicker');
+
+var avatar = document.getElementsByClassName("avatar");
+
+for (let i = 0; i < avatar.length; i++){
+  avatar[i].addEventListener('click', pickAvatar)
+}
+
+function pickAvatar(){
+  if(this.getAttribute('id') == 'doge'){
+      human.avatar = doge;
+      computer.avatar = grumpy;
+  }
+  else{
+    human.avatar = grumpy;
+    computer.avatar = doge;
+  }
+  modal.style.display = "none";
+
+}
