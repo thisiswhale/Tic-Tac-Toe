@@ -44,20 +44,16 @@ body {
   .modal-content h1 {
     text-decoration: underline;
     font-size: 2em; }
-
-.avatar {
-  cursor: pointer;
-  height: 150px;
-  width: 150px; }
-
-.avatar:hover {
-  opacity: 0.4; }
-
-.avatar#doge {
-  margin-left: 25px; }
-
-.avatar#grumpy {
-  margin-right: 25px; }
+  .modal-content .avatar {
+    cursor: pointer;
+    height: 150px;
+    width: 150px; }
+  .modal-content .avatar#doge {
+    margin-left: 25px; }
+  .modal-content .avatar#grumpy {
+    margin-right: 25px; }
+  .modal-content .avatar:hover {
+    opacity: 0.4; }
 
 img {
   height: 140px;

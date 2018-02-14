@@ -1,7 +1,18 @@
+let modal = document.getElementById('modalPicker');
+let avatar = document.getElementsByClassName("avatar");
+let innermodal = document.getElementsByClassName('modal-content');
+const positions = document.getElementsByTagName('td');
+const result = document.getElementById('result');
+
+//avatars
 const grumpy = 'https://a.wattpad.com/useravatar/GrumpyKittyCat1212.128.403917.jpg';
 const doge = 'https://78.media.tumblr.com/avatar_8882900ce8af_128.pnj';
 
 let counter,currentGrid;
+//keeps count of function calls
+let numberOfFunctionCalls = 0;
+
+//Objects setup
 let human = {
   gamePiece: 'O',
   avatar: ""
@@ -12,8 +23,29 @@ let computer = {
   avatar: ""
 }
 
-const positions = document.getElementsByTagName('td');
-const result = document.getElementById('result');
+for (let i = 0; i < avatar.length; i++){
+  avatar[i].addEventListener('click', pickAvatar)
+}
+
+function pickAvatar(){
+  if(this.getAttribute('id') == 'doge'){
+      human.avatar = doge;
+      computer.avatar = grumpy;
+  }
+  else{
+    human.avatar = grumpy;
+    computer.avatar = doge;
+  }
+  //animate to slide up
+  innermodal[0].style.marginTop = '-500px';
+
+  setTimeout(function(){
+  modal.style.display = "none";
+  setGame();
+  }, 500)
+
+}
+
 //Starting the game
 function setGame() {
   counter = 9;
@@ -24,8 +56,6 @@ function setGame() {
     positions[i].addEventListener('click', getHumanMove);
   }
 }
-//keeps count of function calls
-let numberOfFunctionCalls = 0;
 
 function minimax(newGrid, player) {
   numberOfFunctionCalls++;
@@ -104,7 +134,6 @@ function getHumanMove() {
   let index = parseInt(this.getAttribute('data-key'));
   currentGrid[index] = human.gamePiece;
 
-
   if (checkWin(currentGrid, human.gamePiece)) {
     result.innerText = 'WIN';
     setGame();
@@ -114,7 +143,6 @@ function getHumanMove() {
     setTimeout(setGame, 1500)
   }
   else {
-  //  img.src = img.src.replace(/\?.*$/,"")+"?x="+Math.random();
    result.innerHTML = "<img class='computer-thinks' src='https://www.wallies.com/filebin/images/loading_apple.gif'>";
     setTimeout(getComputerMove, 1000);
   }
@@ -127,9 +155,6 @@ function getComputerMove() {
   numberOfFunctionCalls = 0;
   // finding the ultimate play on the game that favors the computer
   var bestSpot = minimax(currentGrid, computer.gamePiece);
-  //loging the results
-  console.log("index: " + bestSpot.index);
-  console.log("function calls: " + numberOfFunctionCalls);
 
   const computerPick = document.getElementById(bestSpot.index);
   computerPick.innerHTML = '<img src=' + computer.avatar + '>';
@@ -147,48 +172,16 @@ function getComputerMove() {
 }
 
 function checkWin(grid, player) {
-  if (
-         (grid[0] == player && grid[1] == player && grid[2] == player) ||
-         (grid[3] == player && grid[4] == player && grid[5] == player) ||
-         (grid[6] == player && grid[7] == player && grid[8] == player) ||
-         (grid[0] == player && grid[3] == player && grid[6] == player) ||
-         (grid[1] == player && grid[4] == player && grid[7] == player) ||
-         (grid[2] == player && grid[5] == player && grid[8] == player) ||
-         (grid[0] == player && grid[4] == player && grid[8] == player) ||
-         (grid[2] == player && grid[4] == player && grid[6] == player)
-         ) {
+  if ((grid[0] == player && grid[1] == player && grid[2] == player) ||
+      (grid[3] == player && grid[4] == player && grid[5] == player) ||
+      (grid[6] == player && grid[7] == player && grid[8] == player) ||
+      (grid[0] == player && grid[3] == player && grid[6] == player) ||
+      (grid[1] == player && grid[4] == player && grid[7] == player) ||
+      (grid[2] == player && grid[5] == player && grid[8] == player) ||
+      (grid[0] == player && grid[4] == player && grid[8] == player) ||
+      (grid[2] == player && grid[4] == player && grid[6] == player)) {
          return true;
      }else {
          return false;
      }
-}
-
-// Get the modal
-let modal = document.getElementById('modalPicker');
-
-let avatar = document.getElementsByClassName("avatar");
-let innermodal = document.getElementsByClassName('modal-content');
-
-
-for (let i = 0; i < avatar.length; i++){
-  avatar[i].addEventListener('click', pickAvatar)
-}
-
-function pickAvatar(){
-  if(this.getAttribute('id') == 'doge'){
-      human.avatar = doge;
-      computer.avatar = grumpy;
-  }
-  else{
-    human.avatar = grumpy;
-    computer.avatar = doge;
-  }
-innermodal[0].style.marginTop = '-500px';
-
-  setTimeout(function(){
-  modal.style.display = "none";
-
-  setGame();
-}, 500)
-
 }
