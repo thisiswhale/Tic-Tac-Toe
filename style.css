@@ -2,8 +2,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #642790;
-  font-family: "Permanent Marker", cursive; }
+  background-color: #2D3B74;
+  font-family: "Permanent Marker", cursive;
+  color: #050E32; }
 
 .container {
   margin: 0 auto; }
@@ -30,11 +31,11 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #83A132;
   margin: 100px auto;
   text-align: center;
   padding: 20px;
-  border: 1px solid #888;
+  border: 5px solid #384515;
   border-radius: 20px;
   width: 450px;
   height: 270px;
@@ -61,7 +62,8 @@ body {
 img {
   height: 140px;
   width: 140px;
-  border-radius: 25px; }
+  border-radius: 25px;
+  border: 3px solid #9C3049; }
 
 .grid {
   margin: 20px auto;
@@ -74,7 +76,7 @@ img {
     border-spacing: 0px;
     border-collapse: separate; }
     .grid table td {
-      border: 5px solid black;
+      border: 5px solid #050E32;
       margin: 0;
       height: 150px;
       width: 150px;
