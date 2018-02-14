@@ -96,5 +96,8 @@ img {
   margin: 0 auto;
   margin-top: 10px;
   font-size: 50px; }
+  .result-box .computer-thinks {
+    height: 90px;
+    width: 90px; }
 
 /*# sourceMappingURL=style.css.map */

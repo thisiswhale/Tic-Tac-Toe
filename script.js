@@ -18,24 +18,12 @@ const result = document.getElementById('result');
 function setGame() {
   counter = 9;
   currentGrid = [0,1,2,3,4,5,6,7,8];
+  result.innerText = 'YOUR TURN';
   for (let i = 0; i < positions.length; i++) {
     positions[i].innerText = "";
     positions[i].addEventListener('click', getHumanMove);
-    // positions[i].addEventListener('mouseover', showPreview);
-    // positions[i].addEventListener('mouseout', hidePreview);
   }
 }
-
-// function showPreview(){
-//     this.innerHTML = '<img src=' + human.avatar + '>';
-//     this.style.opacity = '0.3';
-// }
-//
-// function hidePreview(){
-//     // this.innerHTML = '';
-//     // this.style.opacity = '1';
-// }
-
 //keeps count of function calls
 let numberOfFunctionCalls = 0;
 
@@ -123,15 +111,18 @@ function getHumanMove() {
   }
   else if (counter == 0){
     result.innerText = 'DRAW';
-    setGame();
+    setTimeout(setGame, 1500)
   }
   else {
-    getComputerMove();
+  //  img.src = img.src.replace(/\?.*$/,"")+"?x="+Math.random();
+   result.innerHTML = "<img class='computer-thinks' src='https://www.wallies.com/filebin/images/loading_apple.gif'>";
+    setTimeout(getComputerMove, 1000);
   }
 
 }
 
 function getComputerMove() {
+  result.innerHTML = "YOUR TURN"
   counter--;
   numberOfFunctionCalls = 0;
   // finding the ultimate play on the game that favors the computer
@@ -146,12 +137,12 @@ function getComputerMove() {
   currentGrid[bestSpot.index] = computer.gamePiece;
 
   if (checkWin(currentGrid, computer.gamePiece)) {
-    result.innerText = 'LOSE';
-    setGame();
+    result.innerText = 'YOU LOSE';
+    setTimeout(setGame, 1500)
   }
   else if (counter == 0){
     result.innerText = 'DRAW';
-    setGame();
+    setTimeout(setGame, 1500)
   }
 }
 
@@ -196,7 +187,7 @@ innermodal[0].style.marginTop = '-500px';
 
   setTimeout(function(){
   modal.style.display = "none";
-  result.innerText = 'YOUR TURN';
+
   setGame();
 }, 500)
 
