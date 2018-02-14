@@ -8,16 +8,15 @@
   <title>Tic Tac Toe</title>
 </head>
 <link rel="stylesheet" href="style.css">
-
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 <body>
   <div class="container">
-
+  <h1 class='title'>Tic Tac Toe</h1>
    <!-- The Modal -->
    <div id="modalPicker" class="modal">
-
      <!-- Modal content -->
      <div class="modal-content">
-       <h2>Select your character: </h2>
+       <h1>SELECT YOUR CHARACTER:</h1>
        <img src="https://a.wattpad.com/useravatar/GrumpyKittyCat1212.128.403917.jpg" class='avatar' id='grumpy' data-set='grumpy'>
        <img src="https://78.media.tumblr.com/avatar_8882900ce8af_128.pnj" class='avatar' id='doge' data-set='doge'>
      </div>
@@ -27,7 +26,7 @@
     <div class="grid">
       <table>
         <tr>
-          <td class='row-1 column-1 corner' id="0" data-key='0' data-event='null'>0</td>
+          <td class='row-1 column-1 corner' id="0" data-key='0' data-event='null'></td>
           <td class='row-1 column-2 plus' id="1" data-key='1'></td>
           <td class='row-1 column-3 corner' id="2" data-key='2'></td>
         </tr>
@@ -42,7 +41,8 @@
           <td class='row-3 column-3 corner' id="8" data-key='8'></td>
         </tr>
       </table>
-      <div class='result-box' id="result"> here
+      <div class='result-box' id="result">
+        DRAW
       </div>
     </div>
 

@@ -2,15 +2,14 @@ const grumpy = 'https://a.wattpad.com/useravatar/GrumpyKittyCat1212.128.403917.j
 const doge = 'https://78.media.tumblr.com/avatar_8882900ce8af_128.pnj';
 
 let counter,currentGrid;
-window.onload = setGame;
 let human = {
   gamePiece: 'O',
-  avatar: doge
+  avatar: ""
 }
 
 let computer = {
   gamePiece: 'X',
-  avatar: grumpy
+  avatar: ""
 }
 
 const positions = document.getElementsByTagName('td');
@@ -22,8 +21,20 @@ function setGame() {
   for (let i = 0; i < positions.length; i++) {
     positions[i].innerText = "";
     positions[i].addEventListener('click', getHumanMove);
+    // positions[i].addEventListener('mouseover', showPreview);
+    // positions[i].addEventListener('mouseout', hidePreview);
   }
 }
+
+// function showPreview(){
+//     this.innerHTML = '<img src=' + human.avatar + '>';
+//     this.style.opacity = '0.3';
+// }
+//
+// function hidePreview(){
+//     // this.innerHTML = '';
+//     // this.style.opacity = '1';
+// }
 
 //keeps count of function calls
 let numberOfFunctionCalls = 0;
@@ -162,9 +173,11 @@ function checkWin(grid, player) {
 }
 
 // Get the modal
-var modal = document.getElementById('modalPicker');
+let modal = document.getElementById('modalPicker');
 
-var avatar = document.getElementsByClassName("avatar");
+let avatar = document.getElementsByClassName("avatar");
+let innermodal = document.getElementsByClassName('modal-content');
+
 
 for (let i = 0; i < avatar.length; i++){
   avatar[i].addEventListener('click', pickAvatar)
@@ -179,6 +192,12 @@ function pickAvatar(){
     human.avatar = grumpy;
     computer.avatar = doge;
   }
+innermodal[0].style.marginTop = '-500px';
+
+  setTimeout(function(){
   modal.style.display = "none";
+  result.innerText = 'YOUR TURN';
+  setGame();
+}, 500)
 
 }
