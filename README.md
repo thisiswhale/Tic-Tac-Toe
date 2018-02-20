@@ -1,12 +1,15 @@
-# Tic-Tac-Toe (Unbeatable)
+# Tic-Tac-Toe
 
-An Advanced Front-end project for [FreeCodeCamp](https://www.freecodecamp.org/challenges/build-a-tic-tac-toe-game).
+A game a human can not beat against this high tier AI. 
 
-## Built with
+##### Features
+  - Choose your avatar as Grumpy Cat or Doge
+  - Minimax algorithm to make your opponent a Tic-Tac-Toe Pro
+
+<p align="center"><img width="350" height="350" src="https://user-images.githubusercontent.com/16066443/36402185-64a66568-1591-11e8-9f20-92698b3f88b2.gif"></p>
+
+
+##### Built with
+  - HTML/CSS
+  - SASS
   - JavaScript
-  - CSS
-  - MiniMax Algorthm
-  
-[Working Link](https://codepen.io/thisiswhale/full/XZayeY/) by CodePen
-
-Enjoy!
