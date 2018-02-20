@@ -1,7 +1,8 @@
 # Tic-Tac-Toe
 
-A game a human can not beat against this high tier AI. 
+A game a human can not beat against this high tier AI.
 
+[Dare to Challenge](https://thisiswhale.github.io/Tic-Tac-Toe/).
 ##### Features
   - Choose your avatar as Grumpy Cat or Doge
   - Minimax algorithm to make your opponent a Tic-Tac-Toe Pro
